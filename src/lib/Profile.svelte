@@ -60,19 +60,6 @@
       loading = false
     }
   }
-
-  async function signOut() {
-    try {
-      loading = true
-      let { error } = await supabase.auth.signOut()
-      if (error) throw error
-    } catch (error) {
-      alert(error.message)
-    } finally {
-      loading = false
-      formWidget.reset()
-    }
-  }
 </script>
 
 <form
@@ -112,11 +99,5 @@
       value={loading ? "Loading ..." : "Update"}
       disabled={loading}
     />
-  </div>
-
-  <div>
-    <button class="button block" on:click={signOut} disabled={loading}>
-      Sign Out
-    </button>
   </div>
 </form>

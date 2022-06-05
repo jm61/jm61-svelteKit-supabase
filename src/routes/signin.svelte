@@ -25,6 +25,67 @@
 <h2 class="text-3xl mb-4">Sign In</h2>
 
 <form class="flex flex-col text-md" on:submit|preventDefault={signin}>
+  <div class="relative">
+    <input
+      class="peer h-10 w-full border-b-2 border-gray-600
+    focus:border-pink-600 focus:outline-none placeholder:transparent"
+      type="email"
+      bind:value={email}
+      required
+      placeholder=""
+    />
+    <label
+      class="
+      absolute
+      left-0
+      -top-3.5
+       text-teal-600 text-md 
+       peer-placeholder-shown:text-base peer-placeholder-shown:text-teal-400 
+       peer-placeholder-shown:top-2
+       transition-all
+       peer-focus:-top-3.5
+       peer-focus:text-gray-400
+       peer-focus:text-sm"
+      for="email">Email address</label
+    >
+  </div>
+  <div class="relative mt-6">
+    <input
+      class="peer h-10 w-full border-b-2 border-gray-600
+    focus:border-pink-600 focus:outline-none placeholder:transparent"
+      type="password"
+      placeholder=""
+      bind:value={password}
+      required
+    />
+    <label
+      class="
+      absolute
+      left-0
+      -top-3.5
+      text-teal-600 text-md 
+      peer-placeholder-shown:text-base peer-placeholder-shown:text-teal-400 
+      peer-placeholder-shown:top-2
+      transition-all
+      peer-focus:-top-3.5
+      peer-focus:text-gray-400
+      peer-focus:text-sm"
+      for="password">Password</label
+    >
+  </div>
+
+  <div
+    class="mx-auto my-6 outline outline-indigo-800 px-8 py-2 rounded-xl bg-teal-600 text-gray-100 text-md hover:bg-teal-700"
+  >
+    <input
+      type="submit"
+      class="button block"
+      disabled={loading}
+      value="Sign In"
+    />
+  </div>
+</form>
+<!-- <form class="flex flex-col text-md" on:submit|preventDefault={signin}>
   <label for="email">Email</label>
   <input
     class="outline-none"
@@ -53,4 +114,4 @@
       value="Sign In"
     />
   </div>
-</form>
+</form> -->

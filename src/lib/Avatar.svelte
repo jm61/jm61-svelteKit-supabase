@@ -3,7 +3,7 @@
   import { supabase } from "$lib/supabaseClient"
 
   export let path
-  export let size = "10em"
+  export let size = "8em"
 
   let uploading = false
   let src
@@ -55,20 +55,14 @@
 
 <div>
   {#if path}
-    <img
-      use:downloadImage
-      {src}
-      alt="Avatar"
-      class="rounded-lg mb-2 w-12"
-      style="height: {size}; width: {size};"
-    />
+    <img use:downloadImage {src} alt="Avatar" class="rounded-t-md h-32 w-32" />
   {:else}
     <div style="height: {size}; width: {size};" />
   {/if}
 
   <div style="width: {size};">
     <label
-      class="cursor-pointer hover:shadow-lg hover:shadow-black hover:px-2 rounded-lg"
+      class="text-center block text-white bg-teal-600 cursor-pointer hover:shadow-lg hover:shadow-black hover:px-2 rounded-b-md"
       for="single"
     >
       {uploading ? "Uploading ..." : "Upload"}
