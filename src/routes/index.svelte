@@ -44,6 +44,15 @@
   console.log(meta)
 </script>
 
+<q class="text-2xl font-semibold italic text-center text-slate-900">
+  Welcome on this workbench App dedicated to
+  <span
+    class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block"
+  >
+    <span class="relative text-white">Supabase</span></span
+  > and built with SvelteKit</q
+>
+
 {#if email}
   <h1 class="text-3xl">Welcome back <span class="font-bold">{email}</span>!</h1>
   <button
@@ -65,5 +74,5 @@
     <h2 class="mb-4"><mark class="rounded-lg p-2">You are User</mark></h2>
   {/if}
 {:else}
-  <h3 class="text-2xl">You need to sign in!</h3>
+  <h3 class="text-2xl mt-10">You need to sign in!</h3>
 {/if}
