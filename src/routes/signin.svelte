@@ -75,7 +75,7 @@
   </div>
 
   <div
-    class="mx-auto my-6 outline outline-indigo-800 px-8 py-2 rounded-xl bg-teal-600 text-gray-100 text-md hover:bg-teal-700"
+    class="mx-auto my-6 outline outline-indigo-800 px-8 py-2 rounded-xl bg-teal-600 text-gray-100 text-md hover:bg-teal-700 hover:shadow-lg hover:shadow-black"
   >
     <input
       type="submit"

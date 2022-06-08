@@ -17,8 +17,8 @@
 
 <header class="container mb-10 p-6 bg-teal-600 text-gray-100 md:rounded-lg">
   <nav class="">
-    <ul class="flex gap-4 font-mono lg:text-xl text-sm flex-wrap">
-      <li class="mr-auto hover:shadow-lg hover:shadow-white">
+    <ul class="flex gap-4 font-sans lg:text-xl text-sm flex-wrap">
+      <li class="mr-auto hover:shadow-lg lg:text-2xl hover:shadow-white">
         <a href="/">Home</a>
       </li>
       <li class="hover:shadow-lg hover:shadow-white">
