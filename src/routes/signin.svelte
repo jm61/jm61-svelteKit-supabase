@@ -30,6 +30,7 @@
       class="peer h-10 w-full border-b-2 border-gray-600
     focus:border-pink-600 focus:outline-none placeholder:transparent"
       type="email"
+      id="email"
       bind:value={email}
       required
       placeholder=""
@@ -54,6 +55,7 @@
       class="peer h-10 w-full border-b-2 border-gray-600
     focus:border-pink-600 focus:outline-none placeholder:transparent"
       type="password"
+      id="password"
       placeholder=""
       bind:value={password}
       required

@@ -31,6 +31,9 @@
         .eq("id", user.id)
         .single()
 
+      let buckets = await supabase.storage.getBucket("avatars")
+      console.log({ buckets })
+
       if (error && status !== 406) throw error
 
       if (data) {

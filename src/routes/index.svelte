@@ -88,5 +88,11 @@
     <Alert />
   {/if}
 {:else}
-  <h3 class="text-2xl mt-10">You need to sign in!</h3>
+  <div class="mt-6 text-center ">
+    <a
+      href="/signin"
+      class="text-2xl mt-10 px-2 rounded-md hover:shadow-lg hover:shadow-indigo-500"
+      >You need to sign in!</a
+    >
+  </div>
 {/if}
