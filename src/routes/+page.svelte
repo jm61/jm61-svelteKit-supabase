@@ -2,6 +2,9 @@
   import { user, alert } from "$lib/stores/session"
   import { supabase } from "$lib/supabaseClient"
   import Alert from "$lib/components/Alert.svelte"
+  import { browser } from "$app/environment"
+
+  if (browser) console.clear()
 
   user.set(supabase.auth.user())
 
@@ -14,8 +17,10 @@
   })
 
   const session = supabase.auth.session()
-  const expireAt = new Date(session?.expires_at * 1000)
-  console.log(expireAt.toTimeString().split("G")[0])
+  if (browser) {
+    const expireAt = new Date(session?.expires_at * 1000)
+    console.log(`Session expires at: ${expireAt.toTimeString().split("G")[0]}`)
+  }
 
   const giveAdmin = async () => {
     try {

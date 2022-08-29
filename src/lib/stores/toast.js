@@ -1,11 +1,14 @@
 import { writable } from "svelte/store"
-import { browser } from "$app/env"
 
 export const toasts = writable([])
-export const dismissToast = (id) => {
-  toasts.update((all) => all.filter((toast) => toast.id !== id))
+
+/** @param {string} id */
+export const dismissToast = id => {
+  toasts.update(all => all.filter(toast => toast.id !== id))
 }
-export const addToast = (toast) => {
+
+/** @param {Object} toast */
+export const addToast = toast => {
   const id = Math.floor(Math.random() * 1000)
   const defaults = {
     id,
@@ -14,7 +17,7 @@ export const addToast = (toast) => {
     timeOut: 3000
   }
   const t = { ...defaults, ...toast }
-  toasts.update((all) => [...all, t])
+  toasts.update(all => [...all, t])
 
   if (t.timeOut) {
     setTimeout(() => dismissToast(id), t.timeOut)

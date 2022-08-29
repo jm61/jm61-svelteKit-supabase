@@ -1,5 +1,5 @@
 <script>
-  import { addTodo } from "../lib/stores/todos.js"
+  import { addTodo } from "../../lib/stores/todos.js"
   import { user } from "$lib/stores/session"
   import { todos } from "$lib/stores/todos.js"
   let task = ""
