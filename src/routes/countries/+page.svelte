@@ -1,34 +1,71 @@
 <script>
   import { supabase } from "$lib/supabaseClient"
 
-  async function getData() {
-    const { data, error } = await supabase.from("countries").select()
+  $: result = []
+  $: counted = 0
+  let selected = ""
+
+  async function handleSelect(event) {
+    selected = event.target.value
+    const { data, error, count } = await supabase
+      .from("countries")
+      .select("*", { count: "exact" })
+      .eq("continent", selected)
+    result = data
+    counted = count
     if (error) throw new Error(error.message)
-    return data
+    return result
   }
 </script>
 
-<h1 class="text-center bg-teal-600 text-white">Countries</h1>
-{#await getData()}
-  <p>Fetching data...</p>
-{:then data}
-  <li>COUNTRY <span>CONTINENT</span></li>
-  {#each data as country}
-    {#if country.continent}
-      <li>{country.name} <span>{country.continent}</span></li>
-    {/if}
+<label for="countries">Select a continent:</label>
+
+<select
+  class="input text-center"
+  name="countries"
+  id="countries"
+  on:change={handleSelect}
+>
+  <option value="" />
+  <option value="Africa">Africa</option>
+  <option value="Antarctica">Antarctica</option>
+  <option value="Asia">Asia</option>
+  <option value="Europe">Europe</option>
+  <option value="North America">North America</option>
+  <option value="Oceania">Oceania</option>
+  <option value="South America">South America</option>
+</select>
+
+{#if counted}
+  <div class="mt-4">
+    <span>There are {counted} countries in {selected}</span>
+  </div>
+{/if}
+<div class="cont">
+  {#each result as country}
+    <span class="input p-2 m-2 text-center">{country.name}</span>
   {/each}
-{:catch error}
-  <p>Something went wrong while fetching the data:</p>
-  <pre>{error}</pre>
-{/await}
+</div>
 
 <style>
-  li {
+  .cont {
+    overflow-y: auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    border-bottom: 1px solid #ccc;
+    flex-direction: column;
+    margin: 2rem;
+    width: 350px;
+    height: 400px;
+    padding: 1rem;
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+    background-color: lavenderblush;
+  }
+  .input {
+    background-color: lavenderblush;
+    height: 3rem;
+    border-radius: 3rem;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+    border: none;
   }
 </style>

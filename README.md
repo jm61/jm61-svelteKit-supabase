@@ -1,5 +1,8 @@
 # Project of an application with SvelteKit and Supabase
 
+## _SvelteKit upgrade successful on 08/29/2022_
+***
+
 ## [Demo](https://svelte-kit-sb.vercel.app/)
 
 ### I tried different Supabase tables with and without RLS.

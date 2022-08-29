@@ -23,6 +23,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@supabase/supabase-js": "^1.35.6"
+    "@supabase/supabase-js": "^1.35.6",
+    "cookie": "^0.5.0"
   }
 }
